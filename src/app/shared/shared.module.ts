@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RestaurantService } from './restaurant.service';
 import { CommentService } from './comment.service';
 import { ReviewService } from './review.service';
+import { VotingService } from './voting.service';
 
 @NgModule({
   declarations: [],
@@ -12,7 +13,8 @@ import { ReviewService } from './review.service';
   providers: [
     RestaurantService,
     CommentService,
-    ReviewService
+    ReviewService,
+    VotingService
   ]
 })
 export class SharedModule { }

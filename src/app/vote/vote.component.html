@@ -1,4 +1,4 @@
 <div>
-  <button type="button" (click)="vote()" class="btn btn-outline-success btn-sm">Like</button>
+  <button type="button" (click)="vote()" [ngClass]="{'btn-outline-success': !voted }"  class="btn  btn-success btn-sm">{{ voteStatus}}</button>
 </div>
 

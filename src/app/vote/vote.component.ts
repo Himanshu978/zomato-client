@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { VotingService } from '../shared/voting.service';
 
 @Component({
   selector: 'app-vote',
@@ -10,8 +11,11 @@ export class VoteComponent implements OnInit {
   @Input() id: any;
   @Input() type: string;
 
+  voted = false;
+  voteStatus = 'Like';
 
-  constructor(private commentService: CommentService) { }
+
+  constructor(private votingService: VotingService) { }
 
   ngOnInit() {
 
@@ -24,8 +28,15 @@ export class VoteComponent implements OnInit {
       type: this.type
     };
 
-      this.commentService.submitComment(data).subscribe((res) => {
-        console.log(res);
+      this.votingService.vote(data).subscribe((res) => {
+        if (res === 1) {
+          this.voted = false;
+          this.voteStatus = 'Like';
+
+        } else {
+          this.voted = true;
+          this.voteStatus = 'Liked';
+        }
 
      });
 

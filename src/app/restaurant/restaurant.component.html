@@ -8,7 +8,6 @@
       <div class="col-md-6">
         <p>{{ restaurant?.description }}</p>
 
-
         <div class="row">
             <div class="col-sm-6">
                 <h5>Address</h5>
@@ -26,7 +25,6 @@
           </div>
 
 
-
         </div>
         <hr>
         <h5>Cuisines</h5>
@@ -42,7 +40,7 @@
 
         <img src="https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="img-thumbnail" alt="Cinque Terre">
         <hr>
-        <app-vote></app-vote>
+        <app-vote [id]="restaurant.id" [type]="'restaurant'"></app-vote>
         <hr>
         <app-write-comment [id]="restaurant.id" [type]="'restaurant'"></app-write-comment>
         <div *ngFor="let comment of restaurant.image.restaurant_comments">

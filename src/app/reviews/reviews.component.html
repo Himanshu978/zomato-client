@@ -4,7 +4,7 @@
     <div class="card-body">
         <h6 class="card-subtitle mb-2 text-muted">{{ review?.user?.username }}:</h6>
      <p> {{ review?.content }}</p>
-      <app-vote></app-vote>
+      <app-vote [id]="review.id" [type]="'review'"></app-vote>
       <hr>
       <h6>Comments</h6>
       <app-write-comment [id]="review.id" [type]="'review'"></app-write-comment>
