@@ -19,6 +19,7 @@ import { ReviewsComponent } from './reviews/reviews.component';
 import { AddReviewComponent } from './add-review/add-review.component';
 import { WriteCommentComponent } from './write-comment/write-comment.component';
 import { VoteComponent } from './vote/vote.component';
+import { FoodsListComponent } from './foods-list/foods-list.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { VoteComponent } from './vote/vote.component';
     AddReviewComponent,
     WriteCommentComponent,
     VoteComponent,
+    FoodsListComponent,
 
   ],
   imports: [

@@ -42,13 +42,18 @@ getReviews(id) {
   return this.http.get(url, {headers: headers});
 }
 
-submitComment(data) {
+getFoods(id) {
+  const headers = this.setHeaders();
+  const url = `http://zomato.test/api/restaurants/${id}/foods`;
 
+  return this.http.get(url, {headers: headers});
 }
 
-vote() {
+placeOrder(orderData) {
+  const headers = this.setHeaders();
+  const url = `http://zomato.test/api/orders`;
 
+  return this.http.post(url, orderData, {headers: headers});
 }
-
 
 }
