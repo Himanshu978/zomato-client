@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RestaurantService } from '../shared/restaurant.service';
 
 @Component({
@@ -16,7 +16,9 @@ export class FoodsListComponent implements OnInit {
   totalPrice: any;
   order: any = {};
 
-  constructor(private route: ActivatedRoute, private restaurantService: RestaurantService) { }
+  constructor(private route: ActivatedRoute,
+    private restaurantService: RestaurantService,
+    private router: Router) { }
 
   ngOnInit() {
     // Read the Restaurant Id from the route parameter
@@ -88,8 +90,8 @@ export class FoodsListComponent implements OnInit {
       this.order.orderedFoods = foods;
 
         this.restaurantService.placeOrder(this.order).subscribe(
-          () => {
-
+          (res) => {
+            this.router.navigate(['/orders']);
           }
         );
 

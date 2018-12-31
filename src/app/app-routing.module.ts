@@ -12,7 +12,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent},
   { path: 'home', component: HomeComponent},
   { path: 'restaurants/:id', component: RestaurantComponent },
-  { path: 'restaurants/:id/foods', component: FoodsListComponent }
+  { path: 'restaurants/:id/foods', component: FoodsListComponent },
+  { path: 'orders', component: OrderComponent }
  // { path: '404', component: Error404Component}
 ];
 

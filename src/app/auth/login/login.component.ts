@@ -45,10 +45,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
     return this.authService.login(this.loginForm.value).subscribe(
       (res) => {
           if (res.hasOwnProperty('success')) {
-            console.log(res);
             console.log('Login Successful!');
-            //   console.log(res.token);
-             //   localStorage.setItem('user', res);
              this.errorMessage = '';
              window.localStorage.setItem('token', res.success.token);
              window.localStorage.setItem('userInfo', JSON.stringify(res.success.user));
