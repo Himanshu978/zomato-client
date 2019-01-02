@@ -64,6 +64,10 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
 
  }
+
+
+
+
  ngAfterViewInit(): void {
 
   // Watch for the blur event from any input element on the form.

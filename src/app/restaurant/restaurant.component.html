@@ -40,7 +40,9 @@
       </div>
       <div class="col-md-6">
 
-        <img src="https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="img-thumbnail" alt="Cinque Terre">
+        <img [src]="image" class="img-thumbnail" alt="{{ restaurant.image.url }}">
+
+        <!-- <img *ngIf="restaurant?.image.url" [src]="getImage(restaurant.image.url)" class="img-thumbnail" alt="{{ restaurant.image.url }}"> -->
         <hr>
         <app-vote [id]="restaurant.id" [type]="'restaurant'">Likes: {{ restaurant.image.restaurant_votes.length }}</app-vote>
         <hr>

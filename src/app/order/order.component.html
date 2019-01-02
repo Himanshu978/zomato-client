@@ -1,0 +1,29 @@
+<div class="card">
+  <div class="card-header">
+     <h3>Order History</h3>
+  </div>
+    <div class="card-body">
+       <div class="row">
+          <div class="col-sm-6">
+            <ul class="list-group">
+                <li class="list-group-item justify-content-between"  *ngFor="let order of orders.orders; let i=index">
+
+                    <div class="d-flex w-100 justify-content-between">
+                       <a [routerLink]="['/restaurants/'+order.restaurant.id]"><h5 class="mb-1">{{ order.restaurant.name  }}</h5></a>
+                        <button *ngIf="order.status === 'pending'" type="button"  class="btn btn-secondary btn-sm">Pending</button>
+                        <button *ngIf="order.status === 'cancelled'" type="button"  class="btn btn-danger btn-sm">Cancelled</button>
+                        <button *ngIf="order.status === 'delievered'" type="button"  class="btn btn-success btn-sm">Delievered</button>
+                    </div>
+
+                <div *ngFor="let food of order.ordered_foods">{{ food.food.name }} -
+                  ( {{ food.qty }} x ${{ food.food.price }} ) <b>${{ food.qty*food.food.price}}</b> </div>
+                  <hr>
+                 <p>Total Price - {{ order.price }}</p>
+                </li>
+
+              </ul>
+          </div>
+        </div>
+    </div>
+
+</div>

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { AuthService } from '../auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -7,15 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  userInfo: any;
+  @Input() userInfo: any;
+ // userInfo: any;
 
-  constructor() { }
+  constructor(private authService: AuthService,
+    private router: Router) { }
 
   ngOnInit() {
-    if (window.localStorage.getItem('userInfo')) {
-      this.userInfo = JSON.parse(window.localStorage.getItem('userInfo'));
+  //   if (window.localStorage.getItem('userInfo')) {
+  //     this.userInfo = JSON.parse(window.localStorage.getItem('userInfo'));
+  // }
+
   }
 
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
+    this.userInfo = null;
   }
 
 }

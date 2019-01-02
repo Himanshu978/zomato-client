@@ -14,42 +14,64 @@ export class RestaurantComponent implements OnInit {
   @Input() wait = true;
 
   sub: Subscription;
+  image: any = false;
 
   constructor(private restaurantService: RestaurantService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+// tslint:disable-next-line:max-line-length
 
- // Read the Restaurant Id from the route parameter
- this.sub = this.route.paramMap.subscribe(
+  // Read the Restaurant Id from the route parameter
+  this.sub = this.route.paramMap.subscribe(
   params => {
     if (params.get('id')) {
       const id = +params.get('id');
       this.getRestaurant(id);
     }
-
   }
-);
-
+  );
   // this.getTweet();
   // console.log(this.wait);
   if (this.wait) {
   //  this.restaurant = this.route.snapshot.data['restaurant'];
   }
-
- // console.log(this.tweet);
+  // console.log(this.tweet);
   }
-
-
 
   getRestaurant(id) {
     this.restaurantService.getRestaurant(id).subscribe(
       (data) => {
         this.restaurant = data;
-      //  this.displayTweet();
+        this.getImage(this.restaurant.image.url);
+
       }
     );
-
   }
+
+  dataURItoBlob(dataURI) {
+    const byteString = atob(dataURI);
+    const arrayBuffer = new ArrayBuffer(byteString.length);
+    const int8Array = new Uint8Array(arrayBuffer);
+    for (let i = 0; i < byteString.length; i++) {
+      int8Array[i] = byteString.charCodeAt(i);
+    }
+    const blob = new Blob([arrayBuffer], { type: 'image/jpeg' });
+    return blob;
+ }
+
+  getImage(path) {
+ this.restaurantService.getImage(path).subscribe(
+      (data) => {
+       //  const imageBlob = this.dataURItoBlob(data);
+       //  const imageFile = new File([imageBlob], 'restaurant_image', { type: 'image/jpeg' });
+       //  console.log(imageFile);
+    this.image = data;
+
+      }
+    );
+  }
+
+
 
 
 

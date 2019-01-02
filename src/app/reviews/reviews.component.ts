@@ -17,6 +17,7 @@ reviews: any;
       this.restaurantService.getReviews(this.restaurantId).subscribe(
         (res) => {
           this.reviews = res;
+          console.log(this.reviews);
         }
       );
     }

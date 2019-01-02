@@ -8,17 +8,20 @@
     <ul class="navbar-nav mr-auto">
 
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" [routerLink]="['/login']">Login</a>
       </li>
+      <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/register']">Sign Up</a>
+        </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          {{ userInfo?.username }}
+          {{ userInfo.username }}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#">Profile</a>
-          <a class="dropdown-item" href="#">My orders</a>
+          <a class="dropdown-item" [routerLink]="['/orders']">My orders</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Log out</a>
+          <a class="dropdown-item" (click)="logout()">Log out</a>
         </div>
       </li>
 
