@@ -47,9 +47,9 @@ export class LoginComponent implements OnInit, AfterViewInit {
           if (res.hasOwnProperty('success')) {
             console.log('Login Successful!');
              this.errorMessage = '';
-             window.localStorage.setItem('token', res.success.token);
-             window.localStorage.setItem('userInfo', JSON.stringify(res.success.user));
-             this.route.navigate(['/home']);
+            window.localStorage.setItem('token', res.success.token);
+            window.localStorage.setItem('userInfo', JSON.stringify(res.success.user));
+            this.route.navigate(['/home']);
           }
       },
       (err) => {

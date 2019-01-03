@@ -22,12 +22,15 @@ login (data) {
 
 logout() {
   localStorage.clear();
+  return null;
 }
 
 getUserInfo() {
   if (window.localStorage.getItem('userInfo')) {
     this.userInfo = JSON.parse(window.localStorage.getItem('userInfo'));
     return this.userInfo;
+  } else {
+    return '';
   }
 }
 

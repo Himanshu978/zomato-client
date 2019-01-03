@@ -22,6 +22,7 @@ import { VoteComponent } from './vote/vote.component';
 import { FoodsListComponent } from './foods-list/foods-list.component';
 import { OrderComponent } from './order/order.component';
 import { AddRestaurantComponent } from './add-restaurant/add-restaurant.component';
+import { RouteActivator } from './shared/route-activator.service';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { AddRestaurantComponent } from './add-restaurant/add-restaurant.componen
     RouterModule
   ],
   providers: [
-    CoreService
+    CoreService,
+    RouteActivator
   ],
   bootstrap: [AppComponent]
 })

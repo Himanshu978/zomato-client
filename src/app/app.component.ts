@@ -10,9 +10,15 @@ export class AppComponent {
 
 
   getUserInfo() {
+  //  console.log('called');
     if (window.localStorage.getItem('userInfo')) {
       return JSON.parse(window.localStorage.getItem('userInfo'));
     }
+
     return null;
+  }
+
+  logout(data) {
+
   }
 }

@@ -22,8 +22,8 @@ export class ReviewService {
     }
 
  submitReview(data, id) {
-   data.restaurant_id = id;
-  let options = { headers : this.setHeaders()};
+  data.restaurant_id = id;
+  let options = {headers : this.setHeaders()};
   console.log(id);
 
   return this.http.post('http://zomato.test/api/reviews', data, options);

@@ -2,7 +2,7 @@
   <!--The content below is only a placeholder and can be replaced.-->
 
 
-<app-navbar [userInfo]="getUserInfo()"></app-navbar>
+<app-navbar [userInfo]="getUserInfo()" (loggedOut)=logout($event)></app-navbar>
 
   <div style="text-align:center">
 

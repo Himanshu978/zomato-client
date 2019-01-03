@@ -7,13 +7,14 @@ import { RestaurantComponent } from './restaurant/restaurant.component';
 import { FoodsListComponent } from './foods-list/foods-list.component';
 import { OrderComponent } from './order/order.component';
 import { AddRestaurantComponent } from './add-restaurant/add-restaurant.component';
+import { RouteActivator } from './shared/route-activator.service';
 
 const routes: Routes = [
  // { path: 'tweets', loadChildren: () => TweetModule },
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'home', component: HomeComponent},
-  { path: 'restaurants/create', component: AddRestaurantComponent},
+  { path: 'restaurants/create', component: AddRestaurantComponent },
   { path: 'restaurants/:id', component: RestaurantComponent },
   { path: 'restaurants/:id/foods', component: FoodsListComponent },
   { path: 'orders', component: OrderComponent }

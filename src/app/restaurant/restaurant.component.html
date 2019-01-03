@@ -30,7 +30,7 @@
         </div>
         <hr>
         <h5>Cuisines</h5>
-        <p><span *ngFor="let cuisine of restaurant.cuisines">{{ cuisine?.name }}, </span></p>
+        <p><span *ngFor="let cuisine of restaurant?.cuisines">{{ cuisine?.name }}, </span></p>
         <hr>
         <app-add-review [restaurantId]="restaurant.id"></app-add-review>
 
@@ -47,7 +47,7 @@
         <app-vote [id]="restaurant.id" [type]="'restaurant'">Likes: {{ restaurant.image.restaurant_votes.length }}</app-vote>
         <hr>
         <app-write-comment [id]="restaurant.id" [type]="'restaurant'"></app-write-comment>
-        <div *ngFor="let comment of restaurant.image.restaurant_comments">
+        <div *ngFor="let comment of restaurant?.image.restaurant_comments">
             <p><span class="card-subtitle mb-2 text-muted">{{ comment?.user.username }}:</span> {{ comment?.content }}</p>
             <hr>
         </div>

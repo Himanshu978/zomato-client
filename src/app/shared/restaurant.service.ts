@@ -54,7 +54,7 @@ getImage(path) {
 
 getReviews(id) {
   const headers = this.setHeaders();
-  const url = `http://zomato.test/api/restaurants/${id}/reviews`;
+  const url = `http://zomato.test/api/reviews/${id}`;
 
   return this.http.get(url, {headers: headers});
 }
