@@ -1,0 +1,16 @@
+
+<h2>Showing Restaurants list</h2>
+<a [routerLink]="['/restaurants/create']" class="btn btn-success">Add Restaurant</a>
+<hr>
+  <div class="row">
+      <div class="col-sm-6" *ngFor="let restaurant of restaurants">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{ restaurant?.name }}</h5>
+            <p class="card-text">{{ restaurant?.description }}</p>
+            <a [routerLink]="['/restaurants/'+restaurant.id]" class="btn btn-primary">Enter</a>
+          </div>
+        </div>
+      </div>
+
+    </div>

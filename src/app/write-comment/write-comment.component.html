@@ -1,0 +1,7 @@
+<form [formGroup]= "commentForm" (ngSubmit)="submitComment ()" novalidate>
+
+    <input formControlName="content" class="form-control form-control-sm" type="text" placeholder="write a comment...">
+    <input type="submit"  style="display: none;"  [disabled]="commentForm.invalid" >
+</form>
+<hr>
+

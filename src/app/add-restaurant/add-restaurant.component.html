@@ -1,0 +1,156 @@
+<div class="card">
+    <div class="card-header">
+        <h3>Add a restaurant</h3>
+      </div>
+    <div class="card-body">
+
+      <div class="row">
+        <div class="col-sm-8">
+
+            <form [formGroup]="restaurantForm"  (ngSubmit) ="addRestaurant()" novalidate>
+                <div class="form-group row">
+                  <label for="inputName3" class="col-sm-2 col-form-label">Name</label>
+                  <div class="col-sm-10">
+                    <input type="text" formControlName="name" class="form-control"
+                    id="inputName3" placeholder="Name"
+                    [ngClass]="{'is-invalid': displayMessage.name }" />
+
+                    <span class="invalid-feedback">
+                      {{ displayMessage?.name }}
+                   </span>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="inputDescription3" class="col-sm-2 col-form-label">Description</label>
+                  <div class="col-sm-10">
+                      <textarea  formControlName="description" class="form-control" id="inputDescription3"
+                      rows="3" [ngClass]="{'is-invalid': displayMessage.description }" > </textarea>
+                   <span class="invalid-feedback">
+                      {{ displayMessage?.description }}
+                   </span>
+                  </div>
+                </div>
+                <fieldset class="form-group">
+                  <div class="row">
+                      <label for="inputPhone3" class="col-sm-2 col-form-label">Phone</label>
+                    <div class="col-sm-10">
+                        <input formControlName="phone" type="text" class="form-control" id="inputPhone3"
+                        placeholder="Phone number"
+                        [ngClass]="{'is-invalid': displayMessage.phone }" />
+
+                        <span class="invalid-feedback">
+                          {{ displayMessage?.phone }}
+                       </span>
+                    </div>
+                  </div>
+                </fieldset>
+                <div class="form-group row">
+                        <label for="inputOpening3" class="col-sm-2 col-form-label">Opening</label>
+                      <div class="col-sm-10">
+                          <input formControlName="opening" type="time" class="form-control" id="inputOpening3"
+                          placeholder="Opening Time"
+
+                    [ngClass]="{'is-invalid': displayMessage.opening }" />
+
+                    <span class="invalid-feedback">
+                      {{ displayMessage?.opening }}
+                   </span>
+                      </div>
+                </div>
+                <div class="form-group row">
+                        <label for="inputClosing3" class="col-sm-2 col-form-label">Closing</label>
+                      <div class="col-sm-10">
+                          <input formControlName="closing" type="time" class="form-control" id="inputClosing3"
+                          placeholder="Closing Time"
+                          [ngClass]="{'is-invalid': displayMessage.closing }" />
+
+                          <span class="invalid-feedback">
+                            {{ displayMessage?.closing }}
+                         </span>
+                      </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputAddress3" class="col-sm-2 col-form-label">Address</label>
+                  <div class="col-sm-10">
+                      <input formControlName="street_address" type="text" class="form-control" id="inputAddress3"
+                       placeholder="Street Address"
+                       [ngClass]="{'is-invalid': displayMessage.street_address }" />
+
+                       <span class="invalid-feedback">
+                         {{ displayMessage?.street_address }}
+                      </span>
+                      <br>
+                      <div class="row">
+                        <div class="col-sm-6">
+                            <div class="input-group mb-3">
+                                <select formControlName="state" class="custom-select" id="inputGroupSelect02"
+                                [ngClass]="{'is-invalid': displayMessage.state }" >
+                                    <option selected>Choose...</option>
+                                  <option *ngFor="let state of states" [value]="state.id">{{state.name}}</option>
+                                </select>
+                                <div class="input-group-append">
+                                  <label class="input-group-text" for="inputGroupSelect02">State</label>
+                                </div>
+                              </div>
+                              <span class="invalid-feedback">
+                                  {{ displayMessage?.state }}
+                               </span>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group mb-3">
+                                <select formControlName="district_id" class="custom-select" id="inputGroupSelect02"
+                                [ngClass]="{'is-invalid': displayMessage.district_id }" >
+                                    <option selected>Choose...</option>
+                                    <option *ngFor="let district of districts" [value]="district.id">{{district.name}}</option>
+                                </select>
+                                <div class="input-group-append">
+                                  <label class="input-group-text" for="inputGroupSelect02">District</label>
+                                </div>
+                              </div>
+                              <span class="invalid-feedback">
+                                  {{ displayMessage?.district_id }}
+                               </span>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group mb-3">
+                                <input type="text" formControlName="zip" class="form-control" placeholder="0000000"
+                                aria-label="restaurant's zip code" aria-describedby="basic-addon2"
+                                [ngClass]="{'is-invalid': displayMessage.zip }" />
+
+                                <span class="invalid-feedback">
+                                  {{ displayMessage?.zip }}
+                               </span>
+                                <div class="input-group-append">
+                                  <span class="input-group-text" id="basic-addon2">Zip code</span>
+                                </div>
+                              </div>
+                        </div>
+                      </div>
+
+                  </div>
+              </div>
+                <div class="form-group row">
+                  <div class="col-sm-2">Image</div>
+                  <div class="col-sm-10">
+
+                      <div class="custom-file">
+                          <input type="file" (change)="onFileChanged($event)" class="custom-file-input" id="customFile">
+                          <label class="custom-file-label" for="customFile">Choose file</label>
+                        <!-- <button (click)="onUpload()">Upload!</button> -->
+                        </div>
+
+                  </div>
+                </div>
+                <div class="form-group row">
+
+                  <div class="col-sm-10">
+                    <button type="submit"  [disabled]="restaurantForm.invalid" class="btn btn-primary">Create</button>
+                  </div>
+                </div>
+              </form>
+
+        </div>
+
+      </div>
+     </div>
+</div>

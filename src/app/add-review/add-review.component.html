@@ -1,0 +1,11 @@
+<form [formGroup]= "reviewForm" (ngSubmit)="submitReview()" novalidate>
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Add your review</label>
+        <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+          {{ errorMessage }}
+        </div>
+        <textarea formControlName="content" class="form-control" id="exampleFormControlTextarea1"  rows="3"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="reviewForm.invalid" >Submit</button>
+</form>
+<br>

@@ -1,0 +1,52 @@
+<div class="card">
+  <div class="card-header">
+      <h3>{{ restaurant?.name }}'s Menu</h3>
+    </div>
+<div class="card-body">
+  <div class="row">
+      <div class="col-sm-8">
+          <div class="list-group">
+              <a  *ngFor="let food of restaurant.foods; let i = index" class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">{{ food.name }}</h5>
+
+                  <button type="button" (click)="addFood(i)" class="btn btn-success btn-sm">Add</button>
+                </div>
+                <p class="mb-1">Price: ${{ food.price }}</p>
+                <small>{{ food.description }}</small>
+              </a>
+
+            </div>
+
+      </div>
+
+      <div class="col-sm-4">
+      <h5>Your Orders</h5>
+      <hr>
+      <ul class="list-group">
+          <li class="list-group-item justify-content-between"  *ngFor="let orderItem of orderList; let i=index">
+            {{ orderItem.name }} <small> - ${{ orderItem.price }}</small>
+            <div>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" (click)="increaseQty(i)" class="btn btn-outline-success btn-sm">+</button>
+                    <button type="button" class="btn btn-outline-secondary btn-sm">{{ orderItem.qty }}</button>
+                    <button type="button" (click)="decreaseQty(i)" class="btn btn-outline-danger btn-sm">-</button>
+                  </div>
+            </div>
+            <br>
+              <p>${{ orderItem.price * orderItem.qty }}</p>
+          </li>
+
+        </ul>
+        <hr>
+        <p>Total: <b>{{ totalPrice }}</b></p>
+        <button type="button" (click)="placeOrder()" class="btn btn-success btn-lg">Continue</button>
+      </div>
+
+  </div>
+
+
+
+
+  </div>
+</div>

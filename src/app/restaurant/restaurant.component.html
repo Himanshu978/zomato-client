@@ -1,0 +1,59 @@
+<div class="card">
+    <div class="card-header">
+        <h3>{{ restaurant?.name }}</h3>
+      </div>
+  <div class="card-body">
+
+    <div class="row">
+      <div class="col-md-6">
+        <p>{{ restaurant?.description }}</p>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <h5>Address</h5>
+                <p>{{ restaurant?.address.street_address}}</p>
+                <p>{{ restaurant?.address.district.name }}, <b>{{ restaurant?.address.district.state.name }}</b></p>
+
+              </div>
+          <div class="col-sm-6">
+            <h5>Opening hours</h5>
+            <p>{{ restaurant?.opening }} - {{ restaurant?.closing }}</p>
+          </div>
+          <div class="col-md-12">
+            <h5>Phone</h5>
+            <p>{{ restaurant?.phone }}</p>
+          </div>
+          <div class="col-md-12">
+          <a [routerLink]="['foods']"><button type="button" class="btn btn-danger">Menu</button></a>
+            </div>
+
+        </div>
+        <hr>
+        <h5>Cuisines</h5>
+        <p><span *ngFor="let cuisine of restaurant?.cuisines">{{ cuisine?.name }}, </span></p>
+        <hr>
+        <app-add-review [restaurantId]="restaurant.id"></app-add-review>
+
+        <h5>Reviews</h5>
+
+        <app-reviews [restaurantId]="restaurant.id" ></app-reviews>
+      </div>
+      <div class="col-md-6">
+
+        <img [src]="image" class="img-thumbnail" alt="{{ restaurant.image.url }}">
+
+        <!-- <img *ngIf="restaurant?.image.url" [src]="getImage(restaurant.image.url)" class="img-thumbnail" alt="{{ restaurant.image.url }}"> -->
+        <hr>
+        <app-vote [id]="restaurant.id" [type]="'restaurant'">Likes: {{ restaurant.image.restaurant_votes.length }}</app-vote>
+        <hr>
+        <app-write-comment [id]="restaurant.id" [type]="'restaurant'"></app-write-comment>
+        <div *ngFor="let comment of restaurant?.image.restaurant_comments">
+            <p><span class="card-subtitle mb-2 text-muted">{{ comment?.user.username }}:</span> {{ comment?.content }}</p>
+            <hr>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
